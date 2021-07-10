@@ -38,8 +38,8 @@ public OnPlayerCommandText(playerid, cmdtext[])
 forward cmd_wdialog(playerid);
 public cmd_wdialog(playerid)
 {
-        ShowPlayerAltDialog(playerid, 0, AD_STYLE_LIST, "Weapons", "AK47\nM4\nSniper Rifle", "Ok", "Cancel");
-        return 1;
+	ShowPlayerAltDialog(playerid, 0, AD_STYLE_LIST, "Weapons", "AK47\nM4\nSniper Rifle", "Ok", "Cancel");
+	return 1;
 }
 
 public OnAltDialogResponse(playerid, dialogid, response, listitem)
