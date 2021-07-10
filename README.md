@@ -31,8 +31,8 @@ Include in your code and begin using the library:
 ```pawn
 public OnPlayerCommandText(playerid, cmdtext[])
 {
-        if(!strcmp("/wdialog", cmdtext, true)) return cmd_wdialog(playerid);
-        return 0;
+	if(!strcmp("/wdialog", cmdtext, true)) return cmd_wdialog(playerid);
+	return 0;
 }
 
 forward cmd_wdialog(playerid);
