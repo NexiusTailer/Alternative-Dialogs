@@ -1,2 +1,2 @@
-# Alternative-Dialogs
+# Alternative Dialogs
 Dialogs with a new design
