@@ -11,11 +11,6 @@ To choose any of the available skins, just write the following before connecting
 #define AD_SKIN_1 //1 - ID of the skin
 ```
 
-## Functions
-* ShowPlayerAltDialog`(playerid, dialogid, style, caption[], info[], button1[], button2[] = "")` - use to show the dialog for a player
-* OnAltDialogResponse`(playerid, dialogid, response, listitem)` - called when a player "response" on the dialog
-* GetPlayerAltDialog`(playerid)` - use to get a player's current dialog ID
-
 ## How to install
 Simply install to your project:
 ```bash
@@ -26,6 +21,11 @@ Include in your code and begin using the library:
 ```pawn
 #include <alt_dialogs>
 ```
+
+## Functions
+* ShowPlayerAltDialog`(playerid, dialogid, style, caption[], info[], button1[], button2[] = "")` - use to show the dialog for a player
+* OnAltDialogResponse`(playerid, dialogid, response, listitem)` - called when a player "response" on the dialog
+* GetPlayerAltDialog`(playerid)` - use to get a player's current dialog ID
 
 ## Example usage
 ```pawn
