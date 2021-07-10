@@ -67,12 +67,12 @@ Zamaroht and adri1 for Zamaroht's Textdraw Editor
 ## Frequently asked Questions
 **Q:** How to hide the shown dialog?  
 **A:** This can be done like in default dialogs.  
-Use `ShowPlayerAltDialog` function, specifying `dialogid` parameter with the value of -1
+Use `ShowPlayerAltDialog` function, specifying `dialogid` parameter with the value of -1.
 
 **Q:** What does the `response` parameter mean with the value of 2 in `OnAltDialogResponse`?  
-**A:** This means that the dialog was closed by pressing the `"cross"` button or by `ESC`
+**A:** This means that the dialog was closed by pressing the `"cross"` button or by `ESC`.
 
 **Q:** How to make the separate words in the dialog colored?  
-**A:** In this case you can use [that](http://team.sa-mp.com/wiki/GameText_Styles)
+**A:** In this case you can use [that](http://team.sa-mp.com/wiki/GameText_Styles).
 
 This section will be updated as questions are received.
