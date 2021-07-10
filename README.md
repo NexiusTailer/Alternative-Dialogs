@@ -62,7 +62,7 @@ public OnAltDialogResponse(playerid, dialogid, response, listitem)
 ```
 
 ## Thanks
-Zamaroht and adri1 for Zamaroht's Textdraw Editor
+Zamaroht and adri1 for [Zamaroht's Textdraw Editor](https://pawno-info.ru/threads/zamaroht-textdraw-editor-na-russkom.197254/)
 
 ## Frequently asked Questions
 **Q:** How to hide the shown dialog?  
