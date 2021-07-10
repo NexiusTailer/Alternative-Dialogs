@@ -23,9 +23,12 @@ Include in your code and begin using the library:
 ```
 
 ## Functions
-* ShowPlayerAltDialog`(playerid, dialogid, style, caption[], info[], button1[], button2[] = "")` - use to show the dialog for a player
-* OnAltDialogResponse`(playerid, dialogid, response, listitem)` - called when a player "response" on the dialog
-* GetPlayerAltDialog`(playerid)` - use to get a player's current dialog ID
+* ShowPlayerAltDialog`(playerid, dialogid, style, caption[], info[], button1[], button2[] = "")`  
+Use to show the dialog for a player
+* OnAltDialogResponse`(playerid, dialogid, response, listitem)`  
+Called when a player "response" on the dialog
+* GetPlayerAltDialog`(playerid)`  
+Use to get a player's current dialog ID
 
 ## Usage example
 ```pawn
