@@ -27,7 +27,7 @@ Include in your code and begin using the library:
 * OnAltDialogResponse`(playerid, dialogid, response, listitem)` - called when a player "response" on the dialog
 * GetPlayerAltDialog`(playerid)` - use to get a player's current dialog ID
 
-## Example usage
+## Usage example
 ```pawn
 public OnPlayerCommandText(playerid, cmdtext[])
 {
