@@ -4,7 +4,7 @@ The new design drawn via textdraws, it will radically change the interface of yo
 
 ## How do they look
 AD_STYLE_LIST / [SKINS](https://imgur.com/a/Vounp)  
-![https://imgur.com/8sAdgUy](https://i.imgur.com/8sAdgUy.png)
+![](https://i.imgur.com/8sAdgUy.png)
 
 To choose any of the available skins, just write the following before connecting the include:
 ```pawn
