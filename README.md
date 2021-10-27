@@ -76,6 +76,6 @@ Use `ShowPlayerAltDialog` function, specifying `dialogid` parameter with the val
 **A:** This means that the dialog was closed by pressing the `"cross"` button or by `ESC`.
 
 **Q:** How to make the separate words in the dialog colored?  
-**A:** In this case you can use [that](http://team.sa-mp.com/wiki/GameText_Styles).
+**A:** In this case you can use [that](https://team.sa-mp.com/wiki/GameText_Styles).
 
 This section will be updated as questions are received.
