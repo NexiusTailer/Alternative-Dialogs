@@ -1,4 +1,4 @@
-# Alternative Dialogs
+# [Alternative Dialogs](https://pawn-wiki.ru/index.php?/topic/29973-alternative-dialogs/)
 These dialogs have nearly all of the functions that the default dialogs have, but they can be used together.  
 The new design drawn via textdraws, it will radically change the interface of your server.
 
