@@ -5,9 +5,37 @@
 #endif
 #define _alt_dialogs_included
 
-#include <a_samp>
-
 #define AD_VERSION						"6.5"
+
+#tryinclude <open.mp>
+
+#if !defined _INC_open_mp
+	#include <a_samp>
+
+	#if !defined TEXT_DRAW_FONT
+		#define TEXT_DRAW_FONT: _:
+	#endif
+
+	#if !defined TEXT_DRAW_ALIGN
+		#define TEXT_DRAW_ALIGN: _:
+	#endif
+
+	#if !defined TextDrawColour
+		#define TextDrawColour TextDrawColor
+	#endif
+
+	#if !defined TextDrawBoxColour
+		#define TextDrawBoxColour TextDrawBoxColor
+	#endif
+
+	#if !defined PlayerTextDrawColour
+		#define PlayerTextDrawColour PlayerTextDrawColor
+	#endif
+
+	#if !defined PlayerTextDrawBoxColour
+		#define PlayerTextDrawBoxColour PlayerTextDrawBoxColor
+	#endif
+#endif
 
 #define AD_STYLE_LIST					2
 #define AD_INVALID_ID					-1
@@ -200,81 +228,81 @@ public OnGameModeInit()
 	adArrayTDs[0] = TextDrawCreate(470.0, 140.0, "_"); //Title box
 	TextDrawTextSize(adArrayTDs[0], 175.0, 0.0);
 	TextDrawLetterSize(adArrayTDs[0], 0.0, 1.3);
-	TextDrawUseBox(adArrayTDs[0], 1);
-	TextDrawBoxColor(adArrayTDs[0], AD_TITLE_BOX_COLOR);
+	TextDrawUseBox(adArrayTDs[0], true);
+	TextDrawBoxColour(adArrayTDs[0], AD_TITLE_BOX_COLOR);
 	#undef AD_TITLE_BOX_COLOR
 
 	adArrayTDs[1] = TextDrawCreate(470.0, 155.0, "_"); //Panel box
 	TextDrawTextSize(adArrayTDs[1], 175.0, 0.0);
 	TextDrawLetterSize(adArrayTDs[1], 0.0, 17.1);
-	TextDrawUseBox(adArrayTDs[1], 1);
-	TextDrawBoxColor(adArrayTDs[1], AD_PANEL_BOX_COLOR);
+	TextDrawUseBox(adArrayTDs[1], true);
+	TextDrawBoxColour(adArrayTDs[1], AD_PANEL_BOX_COLOR);
 	#undef AD_PANEL_BOX_COLOR
 
 	adArrayTDs[2] = TextDrawCreate(470.0, 140.0, "_"); //Close button box
 	TextDrawTextSize(adArrayTDs[2], 446.0, 12.0);
 	TextDrawLetterSize(adArrayTDs[2], 0.0, 1.3);
-	TextDrawUseBox(adArrayTDs[2], 1);
-	TextDrawBoxColor(adArrayTDs[2], AD_CLOSE_BUTTON_BOX_COLOR);
+	TextDrawUseBox(adArrayTDs[2], true);
+	TextDrawBoxColour(adArrayTDs[2], AD_CLOSE_BUTTON_BOX_COLOR);
 	#undef AD_CLOSE_BUTTON_BOX_COLOR
 
 	adArrayTDs[3] = TextDrawCreate(314.0, 290.5, "_"); //Button 1 box
 	TextDrawTextSize(adArrayTDs[3], 264.0, 12.0);
 	TextDrawLetterSize(adArrayTDs[3], 0.0, 1.3);
-	TextDrawUseBox(adArrayTDs[3], 1);
-	TextDrawBoxColor(adArrayTDs[3], AD_BUTTONS_BOX_COLOR);
+	TextDrawUseBox(adArrayTDs[3], true);
+	TextDrawBoxColour(adArrayTDs[3], AD_BUTTONS_BOX_COLOR);
 
 	adArrayTDs[4] = TextDrawCreate(376.0, 290.5, "_"); //Button 2 box
 	TextDrawTextSize(adArrayTDs[4], 325.0, 12.0);
 	TextDrawLetterSize(adArrayTDs[4], 0.0, 1.3);
-	TextDrawUseBox(adArrayTDs[4], 1);
-	TextDrawBoxColor(adArrayTDs[4], AD_BUTTONS_BOX_COLOR);
+	TextDrawUseBox(adArrayTDs[4], true);
+	TextDrawBoxColour(adArrayTDs[4], AD_BUTTONS_BOX_COLOR);
 
 	adArrayTDs[5] = TextDrawCreate(346.0, 290.5, "_"); //Button 1 box only
 	TextDrawTextSize(adArrayTDs[5], 296.0, 12.0);
 	TextDrawLetterSize(adArrayTDs[5], 0.0, 1.3);
-	TextDrawUseBox(adArrayTDs[5], 1);
-	TextDrawBoxColor(adArrayTDs[5], AD_BUTTONS_BOX_COLOR);
+	TextDrawUseBox(adArrayTDs[5], true);
+	TextDrawBoxColour(adArrayTDs[5], AD_BUTTONS_BOX_COLOR);
 	#undef AD_BUTTONS_BOX_COLOR
 
 	adArrayTDs[6] = TextDrawCreate(470.0, 155.0, "_"); //Up button box
 	TextDrawTextSize(adArrayTDs[6], 460.0, 5.0);
 	TextDrawLetterSize(adArrayTDs[6], 0.0, 1.3);
-	TextDrawUseBox(adArrayTDs[6], 1);
-	TextDrawBoxColor(adArrayTDs[6], AD_UP_DOWN_BUTTONS_BOX_COLOR);
+	TextDrawUseBox(adArrayTDs[6], true);
+	TextDrawBoxColour(adArrayTDs[6], AD_UP_DOWN_BUTTONS_BOX_COLOR);
 
 	adArrayTDs[7] = TextDrawCreate(470.0, 262.0, "_"); //Down button box
 	TextDrawTextSize(adArrayTDs[7], 460.0, 5.0);
 	TextDrawLetterSize(adArrayTDs[7], 0.0, 1.3);
-	TextDrawUseBox(adArrayTDs[7], 1);
-	TextDrawBoxColor(adArrayTDs[7], AD_UP_DOWN_BUTTONS_BOX_COLOR);
+	TextDrawUseBox(adArrayTDs[7], true);
+	TextDrawBoxColour(adArrayTDs[7], AD_UP_DOWN_BUTTONS_BOX_COLOR);
 	#undef AD_UP_DOWN_BUTTONS_BOX_COLOR
 
 	adArrayTDs[8] = TextDrawCreate(454.0, 141.0, "X"); //Close button
-	TextDrawFont(adArrayTDs[8], 2);
+	TextDrawFont(adArrayTDs[8], TEXT_DRAW_FONT:2);
 	TextDrawTextSize(adArrayTDs[8], 465.0, 12.0);
 	TextDrawLetterSize(adArrayTDs[8], 0.27, 0.9);
-	TextDrawColor(adArrayTDs[8], AD_CLOSE_BUTTON_COLOR);
+	TextDrawColour(adArrayTDs[8], AD_CLOSE_BUTTON_COLOR);
 	#undef AD_CLOSE_BUTTON_COLOR
 	TextDrawSetShadow(adArrayTDs[8], 0);
-	TextDrawSetSelectable(adArrayTDs[8], 1);
+	TextDrawSetSelectable(adArrayTDs[8], true);
 
 	adArrayTDs[9] = TextDrawCreate(462.3, 165.0, "v"); //Up button
-	TextDrawFont(adArrayTDs[9], 2);
+	TextDrawFont(adArrayTDs[9], TEXT_DRAW_FONT:2);
 	TextDrawTextSize(adArrayTDs[9], 471.0, 4.5);
 	TextDrawLetterSize(adArrayTDs[9], 0.18, -0.8);
-	TextDrawColor(adArrayTDs[9], AD_UP_DOWN_BUTTONS_COLOR);
+	TextDrawColour(adArrayTDs[9], AD_UP_DOWN_BUTTONS_COLOR);
 	TextDrawSetShadow(adArrayTDs[9], 0);
-	TextDrawSetSelectable(adArrayTDs[9], 1);
+	TextDrawSetSelectable(adArrayTDs[9], true);
 
 	adArrayTDs[10] = TextDrawCreate(462.3, 264.0, "v"); //Down button
-	TextDrawFont(adArrayTDs[10], 2);
+	TextDrawFont(adArrayTDs[10], TEXT_DRAW_FONT:2);
 	TextDrawTextSize(adArrayTDs[10], 471.0, 4.5);
 	TextDrawLetterSize(adArrayTDs[10], 0.18, 0.8);
-	TextDrawColor(adArrayTDs[10], AD_UP_DOWN_BUTTONS_COLOR);
+	TextDrawColour(adArrayTDs[10], AD_UP_DOWN_BUTTONS_COLOR);
 	#undef AD_UP_DOWN_BUTTONS_COLOR
 	TextDrawSetShadow(adArrayTDs[10], 0);
-	TextDrawSetSelectable(adArrayTDs[10], 1);
+	TextDrawSetSelectable(adArrayTDs[10], true);
 
 	printf("Alternative Dialogs v%s by Nexius loaded!\n", AD_VERSION);
 	#if defined ad_OnGameModeInit
@@ -344,7 +372,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		if(_:clickedid == 65535 || clickedid == adArrayTDs[8])
 		{
 			new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-			ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
+			ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
 			CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 2, tmp_itemid);
 		}
 		else if(clickedid == adArrayTDs[9])
@@ -356,17 +384,17 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 				adItemID[playerid] = adPageID[playerid] * 8;
 				for(i = 11; i >= 5; --i)
 				{
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][i], AD_ITEMS_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][i], AD_ITEMS_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][i]);
 				}
-				PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][4], AD_SELECTED_ITEM_BOX_COLOR);
+				PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][4], AD_SELECTED_ITEM_BOX_COLOR);
 				PlayerTextDrawShow(playerid, adArrayPTDs[playerid][4]);
 				i = adPageID[playerid] * 8;
 				for(new j = i + 8, c; i < j; i++)
 				{
 					PlayerTextDrawSetString(playerid, adArrayPTDs[playerid][12 + c], adItems[playerid][i]);
-					if(!adItems[playerid][i]{0}) PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][12 + c], 0);
-					else PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][12 + c], 1);
+					if(!adItems[playerid][i]{0}) PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][12 + c], false);
+					else PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][12 + c], true);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][12 + c]);
 					c++;
 				}
@@ -376,8 +404,8 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 				adArrayPTDs[playerid][20] = CreatePlayerTextDraw(playerid, 470.0, 170.3 + s_pos, "_"); //Scroll box
 				PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][20], 460.0, 5.0);
 				PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][20], 0.0, s_size);
-				PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][20], 1);
-				PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][20], AD_SCROLL_BOX_COLOR);
+				PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][20], true);
+				PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][20], AD_SCROLL_BOX_COLOR);
 				PlayerTextDrawShow(playerid, adArrayPTDs[playerid][20]);
 			}
 		}
@@ -390,17 +418,17 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 				adItemID[playerid] = adPageID[playerid] * 8;
 				for(i = 11; i >= 5; --i)
 				{
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][i], AD_ITEMS_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][i], AD_ITEMS_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][i]);
 				}
-				PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][4], AD_SELECTED_ITEM_BOX_COLOR);
+				PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][4], AD_SELECTED_ITEM_BOX_COLOR);
 				PlayerTextDrawShow(playerid, adArrayPTDs[playerid][4]);
 				i = adPageID[playerid] * 8;
 				for(new j = i + 8, c; i < j; i++)
 				{
 					PlayerTextDrawSetString(playerid, adArrayPTDs[playerid][12 + c], adItems[playerid][i]);
-					if(!adItems[playerid][i]{0}) PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][12 + c], 0);
-					else PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][12 + c], 1);
+					if(!adItems[playerid][i]{0}) PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][12 + c], false);
+					else PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][12 + c], true);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][12 + c]);
 					c++;
 				}
@@ -410,8 +438,8 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 				adArrayPTDs[playerid][20] = CreatePlayerTextDraw(playerid, 470.0, 170.3 + s_pos, "_"); //Scroll box
 				PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][20], 460.0, 5.0);
 				PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][20], 0.0, s_size);
-				PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][20], 1);
-				PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][20], AD_SCROLL_BOX_COLOR);
+				PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][20], true);
+				PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][20], AD_SCROLL_BOX_COLOR);
 				PlayerTextDrawShow(playerid, adArrayPTDs[playerid][20]);
 			}
 		}
@@ -440,13 +468,13 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 		if(playertextid == adArrayPTDs[playerid][1] || playertextid == adArrayPTDs[playerid][2])
 		{
 			new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-			ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
+			ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
 			CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 		}
 		else if(playertextid == adArrayPTDs[playerid][3])
 		{
 			new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-			ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
+			ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
 			CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 0, tmp_itemid);
 		}
 		else
@@ -464,7 +492,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -473,10 +501,10 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 				}
 				else
 				{
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][4], AD_SELECTED_ITEM_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][4], AD_SELECTED_ITEM_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][4]);
 					if(adItemID[playerid] > 7) adItemID[playerid] %= 8;
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4]);
 					adItemID[playerid] = 0 + (adPageID[playerid] * 8);
 					#if AD_FAST_DOUBLE_CLICK
@@ -494,7 +522,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -503,10 +531,10 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 				}
 				else
 				{
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][5], AD_SELECTED_ITEM_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][5], AD_SELECTED_ITEM_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][5]);
 					if(adItemID[playerid] > 7) adItemID[playerid] %= 8;
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4]);
 					adItemID[playerid] = 1 + (adPageID[playerid] * 8);
 					#if AD_FAST_DOUBLE_CLICK
@@ -524,7 +552,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -533,10 +561,10 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 				}
 				else
 				{
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][6], AD_SELECTED_ITEM_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][6], AD_SELECTED_ITEM_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][6]);
 					if(adItemID[playerid] > 7) adItemID[playerid] %= 8;
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4]);
 					adItemID[playerid] = 2 + (adPageID[playerid] * 8);
 					#if AD_FAST_DOUBLE_CLICK
@@ -554,7 +582,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -563,10 +591,10 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 				}
 				else
 				{
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][7], AD_SELECTED_ITEM_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][7], AD_SELECTED_ITEM_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][7]);
 					if(adItemID[playerid] > 7) adItemID[playerid] %= 8;
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4]);
 					adItemID[playerid] = 3 + (adPageID[playerid] * 8);
 					#if AD_FAST_DOUBLE_CLICK
@@ -584,7 +612,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -593,10 +621,10 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 				}
 				else
 				{
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][8], AD_SELECTED_ITEM_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][8], AD_SELECTED_ITEM_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][8]);
 					if(adItemID[playerid] > 7) adItemID[playerid] %= 8;
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4]);
 					adItemID[playerid] = 4 + (adPageID[playerid] * 8);
 					#if AD_FAST_DOUBLE_CLICK
@@ -614,7 +642,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -623,10 +651,10 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 				}
 				else
 				{
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][9], AD_SELECTED_ITEM_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][9], AD_SELECTED_ITEM_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][9]);
 					if(adItemID[playerid] > 7) adItemID[playerid] %= 8;
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4]);
 					adItemID[playerid] = 5 + (adPageID[playerid] * 8);
 					#if AD_FAST_DOUBLE_CLICK
@@ -644,7 +672,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -653,10 +681,10 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 				}
 				else
 				{
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][10], AD_SELECTED_ITEM_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][10], AD_SELECTED_ITEM_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][10]);
 					if(adItemID[playerid] > 7) adItemID[playerid] %= 8;
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4]);
 					adItemID[playerid] = 6 + (adPageID[playerid] * 8);
 					#if AD_FAST_DOUBLE_CLICK
@@ -674,7 +702,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -683,10 +711,10 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 				}
 				else
 				{
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][11], AD_SELECTED_ITEM_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][11], AD_SELECTED_ITEM_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][11]);
 					if(adItemID[playerid] > 7) adItemID[playerid] %= 8;
-					PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
+					PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4], AD_ITEMS_BOX_COLOR);
 					PlayerTextDrawShow(playerid, adArrayPTDs[playerid][adItemID[playerid] + 4]);
 					adItemID[playerid] = 7 + (adPageID[playerid] * 8);
 					#if AD_FAST_DOUBLE_CLICK
@@ -721,8 +749,17 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 
 #undef AD_FAST_DOUBLE_CLICK
 
-ShowPlayerAltDialog(playerid, dialogid, style, caption[], info[], button1[], button2[] = "")
+ShowPlayerAltDialog(playerid, dialogid, style, const caption[] = "", const info[] = "", const button1[] = "", const button2[] = "")
 {
+	new _caption[AD_MAX_CAPTION_LENGTH];
+	if (strlen(caption) > 0) strcat(_caption, caption);
+
+	new _button1[AD_MAX_BUTTONS_LENGTH];
+	if (strlen(button1) > 0) strcat(_button1, button1);
+
+	new _button2[AD_MAX_BUTTONS_LENGTH];
+	if (strlen(button2) > 0) strcat(_button2, button2);
+
 	if(IsPlayerConnected(playerid))
 	{
 		new i;
@@ -749,170 +786,167 @@ ShowPlayerAltDialog(playerid, dialogid, style, caption[], info[], button1[], but
 			adArrayPTDs[playerid][4] = CreatePlayerTextDraw(playerid, 464.0, 155.0, "_"); //Item 1 box
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][4], 181.0, 12.0);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][4], 0.0, 1.3);
-			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][4], 1);
-			PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][4], AD_SELECTED_ITEM_BOX_COLOR);
+			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][4], true);
+			PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][4], AD_SELECTED_ITEM_BOX_COLOR);
 			#undef AD_SELECTED_ITEM_BOX_COLOR
 
 			adArrayPTDs[playerid][5] = CreatePlayerTextDraw(playerid, 464.0, 170.5, "_"); //Item 2 box
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][5], 181.0, 12.0);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][5], 0.0, 1.3);
-			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][5], 1);
-			PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][5], AD_ITEMS_BOX_COLOR);
+			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][5], true);
+			PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][5], AD_ITEMS_BOX_COLOR);
 
 			adArrayPTDs[playerid][6] = CreatePlayerTextDraw(playerid, 464.0, 185.8, "_"); //Item 3 box
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][6], 181.0, 12.0);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][6], 0.0, 1.3);
-			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][6], 1);
-			PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][6], AD_ITEMS_BOX_COLOR);
+			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][6], true);
+			PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][6], AD_ITEMS_BOX_COLOR);
 
 			adArrayPTDs[playerid][7] = CreatePlayerTextDraw(playerid, 464.0, 201.0, "_"); //Item 4 box
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][7], 181.0, 12.0);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][7], 0.0, 1.3);
-			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][7], 1);
-			PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][7], AD_ITEMS_BOX_COLOR);
+			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][7], true);
+			PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][7], AD_ITEMS_BOX_COLOR);
 
 			adArrayPTDs[playerid][8] = CreatePlayerTextDraw(playerid, 464.0, 216.2, "_"); //Item 5 box
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][8], 181.0, 12.0);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][8], 0.0, 1.3);
-			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][8], 1);
-			PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][8], AD_ITEMS_BOX_COLOR);
+			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][8], true);
+			PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][8], AD_ITEMS_BOX_COLOR);
 
 			adArrayPTDs[playerid][9] = CreatePlayerTextDraw(playerid, 464.0, 231.2, "_"); //Item 6 box
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][9], 181.0, 12.0);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][9], 0.0, 1.3);
-			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][9], 1);
-			PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][9], AD_ITEMS_BOX_COLOR);
+			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][9], true);
+			PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][9], AD_ITEMS_BOX_COLOR);
 
 			adArrayPTDs[playerid][10] = CreatePlayerTextDraw(playerid, 464.0, 246.5, "_"); //Item 7 box
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][10], 181.0, 12.0);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][10], 0.0, 1.3);
-			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][10], 1);
-			PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][10], AD_ITEMS_BOX_COLOR);
+			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][10], true);
+			PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][10], AD_ITEMS_BOX_COLOR);
 
 			adArrayPTDs[playerid][11] = CreatePlayerTextDraw(playerid, 464.0, 261.8, "_"); //Item 8 box
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][11], 181.0, 12.0);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][11], 0.0, 1.3);
-			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][11], 1);
-			PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][11], AD_ITEMS_BOX_COLOR);
+			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][11], true);
+			PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][11], AD_ITEMS_BOX_COLOR);
 			#undef AD_ITEMS_BOX_COLOR
 
 			adArrayPTDs[playerid][12] = CreatePlayerTextDraw(playerid, 191.0, 156.3, ""); //Item 1
-			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][12], 2);
+			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][12], TEXT_DRAW_FONT:2);
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][12], 460.0, 13.6);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][12], 0.27, 0.9);
-			PlayerTextDrawColor(playerid, adArrayPTDs[playerid][12], AD_ITEMS_COLOR);
+			PlayerTextDrawColour(playerid, adArrayPTDs[playerid][12], AD_ITEMS_COLOR);
 			PlayerTextDrawSetShadow(playerid, adArrayPTDs[playerid][12], 0);
-			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][12], 1);
+			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][12], true);
 
 			adArrayPTDs[playerid][13] = CreatePlayerTextDraw(playerid, 191.0, 171.8, ""); //Item 2
-			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][13], 2);
+			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][13], TEXT_DRAW_FONT:2);
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][13], 460.0, 13.6);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][13], 0.27, 0.9);
-			PlayerTextDrawColor(playerid, adArrayPTDs[playerid][13], AD_ITEMS_COLOR);
+			PlayerTextDrawColour(playerid, adArrayPTDs[playerid][13], AD_ITEMS_COLOR);
 			PlayerTextDrawSetShadow(playerid, adArrayPTDs[playerid][13], 0);
-			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][13], 1);
+			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][13], true);
 
 			adArrayPTDs[playerid][14] = CreatePlayerTextDraw(playerid, 191.0, 187.3, ""); //Item 3
-			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][14], 2);
+			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][14], TEXT_DRAW_FONT:2);
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][14], 460.0, 13.6);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][14], 0.27, 0.9);
-			PlayerTextDrawColor(playerid, adArrayPTDs[playerid][14], AD_ITEMS_COLOR);
+			PlayerTextDrawColour(playerid, adArrayPTDs[playerid][14], AD_ITEMS_COLOR);
 			PlayerTextDrawSetShadow(playerid, adArrayPTDs[playerid][14], 0);
-			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][14], 1);
+			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][14], true);
 
 			adArrayPTDs[playerid][15] = CreatePlayerTextDraw(playerid, 191.0, 202.6, ""); //Item 4
-			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][15], 2);
+			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][15], TEXT_DRAW_FONT:2);
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][15], 460.0, 13.6);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][15], 0.27, 0.9);
-			PlayerTextDrawColor(playerid, adArrayPTDs[playerid][15], AD_ITEMS_COLOR);
+			PlayerTextDrawColour(playerid, adArrayPTDs[playerid][15], AD_ITEMS_COLOR);
 			PlayerTextDrawSetShadow(playerid, adArrayPTDs[playerid][15], 0);
-			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][15], 1);
+			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][15], true);
 
 			adArrayPTDs[playerid][16] = CreatePlayerTextDraw(playerid, 191.0, 217.6, ""); //Item 5
-			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][16], 2);
+			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][16], TEXT_DRAW_FONT:2);
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][16], 460.0, 13.6);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][16], 0.27, 0.9);
-			PlayerTextDrawColor(playerid, adArrayPTDs[playerid][16], AD_ITEMS_COLOR);
+			PlayerTextDrawColour(playerid, adArrayPTDs[playerid][16], AD_ITEMS_COLOR);
 			PlayerTextDrawSetShadow(playerid, adArrayPTDs[playerid][16], 0);
-			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][16], 1);
+			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][16], true);
 
 			adArrayPTDs[playerid][17] = CreatePlayerTextDraw(playerid, 191.0, 232.7, ""); //Item 6
-			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][17], 2);
+			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][17], TEXT_DRAW_FONT:2);
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][17], 460.0, 13.6);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][17], 0.27, 0.9);
-			PlayerTextDrawColor(playerid, adArrayPTDs[playerid][17], AD_ITEMS_COLOR);
+			PlayerTextDrawColour(playerid, adArrayPTDs[playerid][17], AD_ITEMS_COLOR);
 			PlayerTextDrawSetShadow(playerid, adArrayPTDs[playerid][17], 0);
-			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][17], 1);
+			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][17], true);
 
 			adArrayPTDs[playerid][18] = CreatePlayerTextDraw(playerid, 191.0, 247.9, ""); //Item 7
-			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][18], 2);
+			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][18], TEXT_DRAW_FONT:2);
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][18], 460.0, 13.6);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][18], 0.27, 0.9);
-			PlayerTextDrawColor(playerid, adArrayPTDs[playerid][18], AD_ITEMS_COLOR);
+			PlayerTextDrawColour(playerid, adArrayPTDs[playerid][18], AD_ITEMS_COLOR);
 			PlayerTextDrawSetShadow(playerid, adArrayPTDs[playerid][18], 0);
-			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][18], 1);
+			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][18], true);
 
 			adArrayPTDs[playerid][19] = CreatePlayerTextDraw(playerid, 191.0, 263.0, ""); //Item 8
-			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][19], 2);
+			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][19], TEXT_DRAW_FONT:2);
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][19], 460.0, 13.6);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][19], 0.27, 0.9);
-			PlayerTextDrawColor(playerid, adArrayPTDs[playerid][19], AD_ITEMS_COLOR);
+			PlayerTextDrawColour(playerid, adArrayPTDs[playerid][19], AD_ITEMS_COLOR);
 			#undef AD_ITEMS_COLOR
 			PlayerTextDrawSetShadow(playerid, adArrayPTDs[playerid][19], 0);
-			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][19], 1);
+			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][19], true);
 
 			if(strlen(caption) >= AD_MAX_CAPTION_LENGTH)
 			{
-				caption[AD_MAX_CAPTION_LENGTH - 3] = '.';
-				caption[AD_MAX_CAPTION_LENGTH - 2] = '.';
-				caption[AD_MAX_CAPTION_LENGTH - 1] = '.';
-				caption[AD_MAX_CAPTION_LENGTH] = EOS;
+				_caption[AD_MAX_CAPTION_LENGTH - 3] = '.';
+				_caption[AD_MAX_CAPTION_LENGTH - 2] = '.';
+				_caption[AD_MAX_CAPTION_LENGTH - 1] = '.';
 				#undef AD_MAX_CAPTION_LENGTH
 			}
 
-			adArrayPTDs[playerid][0] = CreatePlayerTextDraw(playerid, 188.0, 141.0, caption); //Title
-			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][0], 2);
+			adArrayPTDs[playerid][0] = CreatePlayerTextDraw(playerid, 188.0, 141.0, _caption); //Title
+			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][0], TEXT_DRAW_FONT:2);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][0], 0.27, 0.9);
-			PlayerTextDrawColor(playerid, adArrayPTDs[playerid][0], AD_TITLE_COLOR);
+			PlayerTextDrawColour(playerid, adArrayPTDs[playerid][0], AD_TITLE_COLOR);
 			#undef AD_TITLE_COLOR
 			PlayerTextDrawSetShadow(playerid, adArrayPTDs[playerid][0], 0);
 
-			if(strlen(button1) >= AD_MAX_BUTTONS_LENGTH) button1[AD_MAX_BUTTONS_LENGTH] = EOS;
 			new b2_len = strlen(button2);
 			if(b2_len > 0)
 			{
-				adArrayPTDs[playerid][1] = CreatePlayerTextDraw(playerid, 289.0, 292.0, button1); //Button 1
-				PlayerTextDrawAlignment(playerid, adArrayPTDs[playerid][1], 2);
-				PlayerTextDrawFont(playerid, adArrayPTDs[playerid][1], 2);
+				adArrayPTDs[playerid][1] = CreatePlayerTextDraw(playerid, 289.0, 292.0, _button1); //Button 1
+				PlayerTextDrawAlignment(playerid, adArrayPTDs[playerid][1], TEXT_DRAW_ALIGN:2);
+				PlayerTextDrawFont(playerid, adArrayPTDs[playerid][1], TEXT_DRAW_FONT:2);
 				PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][1], 12.0, 38.0);
 				PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][1], 0.27, 0.9);
-				PlayerTextDrawColor(playerid, adArrayPTDs[playerid][1], AD_BUTTONS_COLOR);
+				PlayerTextDrawColour(playerid, adArrayPTDs[playerid][1], AD_BUTTONS_COLOR);
 				PlayerTextDrawSetShadow(playerid, adArrayPTDs[playerid][1], 0);
-				PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][1], 1);
+				PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][1], true);
 
-				if(b2_len >= AD_MAX_BUTTONS_LENGTH) button2[AD_MAX_BUTTONS_LENGTH] = EOS;
 				#undef AD_MAX_BUTTONS_LENGTH
 
-				adArrayPTDs[playerid][3] = CreatePlayerTextDraw(playerid, 350.5, 292.0, button2); //Button 2
-				PlayerTextDrawAlignment(playerid, adArrayPTDs[playerid][3], 2);
-				PlayerTextDrawFont(playerid, adArrayPTDs[playerid][3], 2);
+				adArrayPTDs[playerid][3] = CreatePlayerTextDraw(playerid, 350.5, 292.0, _button2); //Button 2
+				PlayerTextDrawAlignment(playerid, adArrayPTDs[playerid][3], TEXT_DRAW_ALIGN:2);
+				PlayerTextDrawFont(playerid, adArrayPTDs[playerid][3], TEXT_DRAW_FONT:2);
 				PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][3], 12.0, 38.0);
 				PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][3], 0.27, 0.9);
-				PlayerTextDrawColor(playerid, adArrayPTDs[playerid][3], AD_BUTTONS_COLOR);
+				PlayerTextDrawColour(playerid, adArrayPTDs[playerid][3], AD_BUTTONS_COLOR);
 				PlayerTextDrawSetShadow(playerid, adArrayPTDs[playerid][3], 0);
-				PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][3], 1);
+				PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][3], true);
 			}
 			else
 			{
-				adArrayPTDs[playerid][2] = CreatePlayerTextDraw(playerid, 321.0, 292.0, button1); //Button 1 only
-				PlayerTextDrawAlignment(playerid, adArrayPTDs[playerid][2], 2);
-				PlayerTextDrawFont(playerid, adArrayPTDs[playerid][2], 2);
+				adArrayPTDs[playerid][2] = CreatePlayerTextDraw(playerid, 321.0, 292.0, _button1); //Button 1 only
+				PlayerTextDrawAlignment(playerid, adArrayPTDs[playerid][2], TEXT_DRAW_ALIGN:2);
+				PlayerTextDrawFont(playerid, adArrayPTDs[playerid][2], TEXT_DRAW_FONT:2);
 				PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][2], 12.0, 38.0);
 				PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][2], 0.27, 0.9);
-				PlayerTextDrawColor(playerid, adArrayPTDs[playerid][2], AD_BUTTONS_COLOR);
+				PlayerTextDrawColour(playerid, adArrayPTDs[playerid][2], AD_BUTTONS_COLOR);
 				#undef AD_BUTTONS_COLOR
 				PlayerTextDrawSetShadow(playerid, adArrayPTDs[playerid][2], 0);
-				PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][2], 1);
+				PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][2], true);
 			}
 			i = 0;
 			new c = -1;
@@ -940,8 +974,8 @@ ShowPlayerAltDialog(playerid, dialogid, style, caption[], info[], button1[], but
 			adArrayPTDs[playerid][20] = CreatePlayerTextDraw(playerid, 470.0, 170.3, "_"); //Scroll box
 			PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][20], 460.0, 5.0);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][20], 0.0, 9.8 / (floatround(c / 8, floatround_tozero) + 1));
-			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][20], 1);
-			PlayerTextDrawBoxColor(playerid, adArrayPTDs[playerid][20], AD_SCROLL_BOX_COLOR);
+			PlayerTextDrawUseBox(playerid, adArrayPTDs[playerid][20], true);
+			PlayerTextDrawBoxColour(playerid, adArrayPTDs[playerid][20], AD_SCROLL_BOX_COLOR);
 			#undef AD_SCROLL_BOX_COLOR
 
 			for(i = sizeof(adArrayTDs) - 1; i >= 0; --i)
