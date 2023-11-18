@@ -372,7 +372,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		if(_:clickedid == 65535 || clickedid == adArrayTDs[8])
 		{
 			new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-			ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
+			ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
 			CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 2, tmp_itemid);
 		}
 		else if(clickedid == adArrayTDs[9])
@@ -468,13 +468,13 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 		if(playertextid == adArrayPTDs[playerid][1] || playertextid == adArrayPTDs[playerid][2])
 		{
 			new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-			ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
+			ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
 			CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 		}
 		else if(playertextid == adArrayPTDs[playerid][3])
 		{
 			new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-			ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
+			ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
 			CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 0, tmp_itemid);
 		}
 		else
@@ -492,7 +492,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -522,7 +522,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -552,7 +552,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -582,7 +582,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -612,7 +612,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -642,7 +642,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -672,7 +672,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -702,7 +702,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 							adLastClicked[playerid] = 0;
 					#endif
 					new tmp_dialogid = adDialogID[playerid], tmp_itemid = adItemID[playerid];
-					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1);
+					ShowPlayerAltDialog(playerid, AD_INVALID_ID, -1, "", "", "");
 					CallRemoteFunction("OnAltDialogResponse", "iiii", playerid, tmp_dialogid, 1, tmp_itemid);
 					#if AD_FAST_DOUBLE_CLICK
 						}
@@ -749,7 +749,7 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 
 #undef AD_FAST_DOUBLE_CLICK
 
-ShowPlayerAltDialog(playerid, dialogid, style, const caption[] = "", const info[] = "", const button1[] = "", const button2[] = "")
+ShowPlayerAltDialog(playerid, dialogid, style, const caption[], const info[], const button1[], const button2[] = "")
 {
 	new _caption[AD_MAX_CAPTION_LENGTH];
 	if (strlen(caption) > 0) strcat(_caption, caption);
