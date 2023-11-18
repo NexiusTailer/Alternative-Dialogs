@@ -63,7 +63,7 @@
 #endif
 
 #if !defined AD_MAX_BUTTONS_LENGTH
-	#define AD_MAX_BUTTONS_LENGTH		6
+	#define AD_MAX_BUTTONS_LENGTH		7
 #endif
 
 #if defined AD_SKIN_1
@@ -749,17 +749,8 @@ public OnPlayerClickPlayerTextDraw(playerid, PlayerText:playertextid)
 
 #undef AD_FAST_DOUBLE_CLICK
 
-ShowPlayerAltDialog(playerid, dialogid, style, const caption[] = "", const info[] = "", const button1[] = "", const button2[] = "")
+ShowPlayerAltDialog(playerid, dialogid, style, const caption[AD_MAX_CAPTION_LENGTH] = "", const info[] = "", const button1[AD_MAX_BUTTONS_LENGTH] = "", const button2[AD_MAX_BUTTONS_LENGTH] = "")
 {
-	new _caption[AD_MAX_CAPTION_LENGTH];
-	if (strlen(caption) > 0) strcat(_caption, caption);
-
-	new _button1[AD_MAX_BUTTONS_LENGTH];
-	if (strlen(button1) > 0) strcat(_button1, button1);
-
-	new _button2[AD_MAX_BUTTONS_LENGTH];
-	if (strlen(button2) > 0) strcat(_button2, button2);
-
 	if(IsPlayerConnected(playerid))
 	{
 		new i;
@@ -898,15 +889,9 @@ ShowPlayerAltDialog(playerid, dialogid, style, const caption[] = "", const info[
 			PlayerTextDrawSetShadow(playerid, adArrayPTDs[playerid][19], 0);
 			PlayerTextDrawSetSelectable(playerid, adArrayPTDs[playerid][19], true);
 
-			if(strlen(caption) >= AD_MAX_CAPTION_LENGTH)
-			{
-				_caption[AD_MAX_CAPTION_LENGTH - 3] = '.';
-				_caption[AD_MAX_CAPTION_LENGTH - 2] = '.';
-				_caption[AD_MAX_CAPTION_LENGTH - 1] = '.';
-				#undef AD_MAX_CAPTION_LENGTH
-			}
+			#undef AD_MAX_CAPTION_LENGTH
 
-			adArrayPTDs[playerid][0] = CreatePlayerTextDraw(playerid, 188.0, 141.0, _caption); //Title
+			adArrayPTDs[playerid][0] = CreatePlayerTextDraw(playerid, 188.0, 141.0, caption); //Title
 			PlayerTextDrawFont(playerid, adArrayPTDs[playerid][0], TEXT_DRAW_FONT:2);
 			PlayerTextDrawLetterSize(playerid, adArrayPTDs[playerid][0], 0.27, 0.9);
 			PlayerTextDrawColour(playerid, adArrayPTDs[playerid][0], AD_TITLE_COLOR);
@@ -916,7 +901,7 @@ ShowPlayerAltDialog(playerid, dialogid, style, const caption[] = "", const info[
 			new b2_len = strlen(button2);
 			if(b2_len > 0)
 			{
-				adArrayPTDs[playerid][1] = CreatePlayerTextDraw(playerid, 289.0, 292.0, _button1); //Button 1
+				adArrayPTDs[playerid][1] = CreatePlayerTextDraw(playerid, 289.0, 292.0, button1); //Button 1
 				PlayerTextDrawAlignment(playerid, adArrayPTDs[playerid][1], TEXT_DRAW_ALIGN:2);
 				PlayerTextDrawFont(playerid, adArrayPTDs[playerid][1], TEXT_DRAW_FONT:2);
 				PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][1], 12.0, 38.0);
@@ -927,7 +912,7 @@ ShowPlayerAltDialog(playerid, dialogid, style, const caption[] = "", const info[
 
 				#undef AD_MAX_BUTTONS_LENGTH
 
-				adArrayPTDs[playerid][3] = CreatePlayerTextDraw(playerid, 350.5, 292.0, _button2); //Button 2
+				adArrayPTDs[playerid][3] = CreatePlayerTextDraw(playerid, 350.5, 292.0, button2); //Button 2
 				PlayerTextDrawAlignment(playerid, adArrayPTDs[playerid][3], TEXT_DRAW_ALIGN:2);
 				PlayerTextDrawFont(playerid, adArrayPTDs[playerid][3], TEXT_DRAW_FONT:2);
 				PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][3], 12.0, 38.0);
@@ -938,7 +923,7 @@ ShowPlayerAltDialog(playerid, dialogid, style, const caption[] = "", const info[
 			}
 			else
 			{
-				adArrayPTDs[playerid][2] = CreatePlayerTextDraw(playerid, 321.0, 292.0, _button1); //Button 1 only
+				adArrayPTDs[playerid][2] = CreatePlayerTextDraw(playerid, 321.0, 292.0, button1); //Button 1 only
 				PlayerTextDrawAlignment(playerid, adArrayPTDs[playerid][2], TEXT_DRAW_ALIGN:2);
 				PlayerTextDrawFont(playerid, adArrayPTDs[playerid][2], TEXT_DRAW_FONT:2);
 				PlayerTextDrawTextSize(playerid, adArrayPTDs[playerid][2], 12.0, 38.0);
